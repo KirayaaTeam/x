@@ -1,0 +1,22 @@
+<!-- Design an app to demonstrate reuse of visible space using fragments -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.fragmentdemo.FirstFragment"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.fragmentdemo.SecondFragment"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+
+</LinearLayout>

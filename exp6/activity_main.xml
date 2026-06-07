@@ -1,0 +1,36 @@
+<!-- Program to demonstrate Spinners, Touch Mode, Alerts, Popups, Menus and Toasts with their events handler -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnAlert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Alert"/>
+
+    <Button
+        android:id="@+id/btnPopup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Popup Menu"/>
+
+    <TextView
+        android:id="@+id/txtTouch"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="Touch Here"
+        android:textSize="20sp"/>
+
+</LinearLayout>
