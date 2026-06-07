@@ -1,186 +1,178 @@
 <!-- Demonstrate Constraint layout, Linear (Horizontal and Vertical) layout,Table Layout and Legacy (relative Layout, Grid Layout and Frame Layout by adding components in it. -->
 
-<!-- Constraint Layout -->
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Constraint Layout"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintTop_toBottomOf="@id/txt1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-<!-- Linear Layout (Vertical) -->
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
-
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"/>
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"/>
+        <!-- Constraint Layout -->
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#E1BEE7"
+            android:layout_marginBottom="10dp">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/txtConstraint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Constraint Layout"
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="10dp"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- Vertical Linear Layout -->
 
-<!-- Linear Layout (Horizontal) -->
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#C8E6C9"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yes"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vertical Linear Layout"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button 1"/>
+        </LinearLayout>
 
-</LinearLayout>
+        <!-- Horizontal Linear Layout -->
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#BBDEFB"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp">
 
-<!-- Table Layout -->
-<?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"/>
 
-    <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"/>
+        </LinearLayout>
 
-        <TextView
-            android:text="Name"
-            android:padding="10dp"/>
+        <!-- Relative Layout -->
 
-        <EditText
-            android:hint="Enter Name"/>
-    </TableRow>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#FFE082"
+            android:layout_marginBottom="10dp">
 
-    <TableRow>
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relative Layout"
+                android:textSize="18sp"
+                android:layout_margin="10dp"/>
 
-        <TextView
-            android:text="Age"
-            android:padding="10dp"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click"
+                android:layout_below="@id/text1"
+                android:layout_marginLeft="10dp"/>
 
-        <EditText
-            android:hint="Enter Age"/>
-    </TableRow>
+        </RelativeLayout>
 
-</TableLayout>
+        <!-- Table Layout -->
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8BBD0"
+            android:stretchColumns="1"
+            android:layout_marginBottom="10dp">
 
+            <TableRow>
 
-<!-- Relative Layout (Legacy) -->
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                <TextView
+                    android:text="Name"
+                    android:padding="10dp"/>
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Relative Layout"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"/>
+                <EditText
+                    android:hint="Enter Name"/>
+            </TableRow>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click"
-        android:layout_below="@id/title"
-        android:layout_centerHorizontal="true"/>
+            <TableRow>
 
-</RelativeLayout>
+                <TextView
+                    android:text="Age"
+                    android:padding="10dp"/>
 
+                <EditText
+                    android:hint="Enter Age"/>
+            </TableRow>
 
+        </TableLayout>
 
-<!-- Grid Layout (Legacy) -->
-<?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="2">
+        <!-- Grid Layout -->
 
-    <Button
-        android:text="1"/>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:background="#D7CCC8"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp">
 
-    <Button
-        android:text="2"/>
+            <Button
+                android:text="1"/>
 
-    <Button
-        android:text="3"/>
+            <Button
+                android:text="2"/>
 
-    <Button
-        android:text="4"/>
+            <Button
+                android:text="3"/>
 
-</GridLayout>
+            <Button
+                android:text="4"/>
 
+        </GridLayout>
 
+        <!-- Frame Layout -->
 
-<!-- Frame Layout (Legacy) -->
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#B2DFDB">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frame Layout"
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Frame Layout"
-        android:textSize="20sp"
-        android:layout_gravity="center"/>
+        </FrameLayout>
 
-</FrameLayout>
+    </LinearLayout>
 
+</ScrollView>
 
 
 
