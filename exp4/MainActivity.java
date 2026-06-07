@@ -1,21 +1,21 @@
-package com.example.intentdemo;
+package com.example.intentsapp;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
+
     EditText etName, etMobile;
     Button btnNext, btnSMS;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -25,33 +25,40 @@ public class MainActivity extends AppCompatActivity
         btnNext = findViewById(R.id.btnNext);
         btnSMS = findViewById(R.id.btnSMS);
 
-        btnNext.setOnClickListener(v ->
-        {
-            Intent intent = new Intent(MainActivity.this,
-                    SecondActivity.class);
+        // Explicit Intent
 
-            intent.putExtra("name",
-                    etName.getText().toString());
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            intent.putExtra("mobile",
-                    etMobile.getText().toString());
+                String name = etName.getText().toString();
 
-            startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,
+                        SecondActivity.class);
+
+                intent.putExtra("username", name);
+
+                startActivity(intent);
+            }
         });
 
-        btnSMS.setOnClickListener(v ->
-        {
-            Intent smsIntent = new Intent(
-                    Intent.ACTION_VIEW);
+        // Implicit Intent for SMS
 
-            smsIntent.setData(
-                    Uri.parse("sms:" +
-                    etMobile.getText().toString()));
+        btnSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            smsIntent.putExtra("sms_body",
-                    "Hello from Android App");
+                String mobile = etMobile.getText().toString();
 
-            startActivity(smsIntent);
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+
+                smsIntent.setData(Uri.parse("sms:" + mobile));
+
+                smsIntent.putExtra("sms_body",
+                        "Hello from Android App");
+
+                startActivity(smsIntent);
+            }
         });
     }
 }
