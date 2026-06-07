@@ -1,42 +1,37 @@
-package com.example.alarmdemo;
+package com.example.alarmapp;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.AlarmClock;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity
-{
-    Button btnAlarm;
+public class MainActivity extends AppCompatActivity {
+
+    Button btnSetAlarm;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnAlarm = findViewById(R.id.btnAlarm);
+        btnSetAlarm = findViewById(R.id.btnSetAlarm);
 
-        btnAlarm.setOnClickListener(v ->
-        {
-            Intent intent =
-                    new Intent(AlarmClock.ACTION_SET_ALARM);
+        btnSetAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            intent.putExtra(
-                    AlarmClock.EXTRA_MESSAGE,
-                    "Android Practical");
+                Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+                intent.putExtra(AlarmClock.EXTRA_HOUR, 10);
+                intent.putExtra(AlarmClock.EXTRA_MINUTES, 30);
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Wake Up!");
 
-            intent.putExtra(
-                    AlarmClock.EXTRA_HOUR,
-                    10);
-
-            intent.putExtra(
-                    AlarmClock.EXTRA_MINUTES,
-                    30);
-
-            startActivity(intent);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
         });
     }
 }
